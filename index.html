@@ -123,34 +123,35 @@
 							</article>
 
 						<!-- Contact Me -->
-							<article id="contact">
-								<h2 class="major">Contact</h2>
-								<form method="post" action="#">
-									<div class="fields">
-										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="4"></textarea>
-										</div>
+						<article id="contact">
+							<h2 class="major">Contact</h2>
+							<form id="contact-form">
+								<div class="fields">
+									<div class="field half">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" required />
 									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="reset" value="CLEAR" /></li>
-									</ul>
-								</form>
-								<ul class="icons">
-									<li><a href="https://github.com/o-elgazzar" class="icon brands fa-github" target="_blank"><span class="label">GitHub</span></a></li>
-									<li><a href="https://www.linkedin.com/in/o-elgazzar/" class="icon brands fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
-									<li><a href="https://www.instagram.com/oelgazzar1/" class="icon brands fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+									<div class="field half">
+										<label for="email">Email</label>
+										<input type="email" name="email" id="email" required />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="4" required></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" class="primary" /></li>
+									<li><input type="reset" value="CLEAR" /></li>
 								</ul>
-							</article>
+							</form>
+							<ul class="icons">
+								<li><a href="https://github.com/o-elgazzar" class="icon brands fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+								<li><a href="https://www.linkedin.com/in/o-elgazzar/" class="icon brands fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+								<li><a href="https://www.instagram.com/oelgazzar1/" class="icon brands fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+							</ul>
+						</article>
+						
 
 						<!-- Social Logo Elements -->
 							<article id="elements">
@@ -182,6 +183,40 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+			<script type="text/javascript">
+    		(function() {
+        		emailjs.init("bc_LPvYU3dZ4uWlsr");
+    		})();
+			</script>
+
+<script type="text/javascript">
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+
+        
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var message = document.getElementById('message').value;
+
+        
+        emailjs.send("service_c15rsil", "template_abbwq86", {
+            name: name,
+            email: email,
+            message: message
+        })
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            alert("Your message has been sent successfully!");
+        }, function(error) {
+            console.log('FAILED...', error);
+            alert("Failed to send your message. Please try again later.");
+        });
+    });
+</script>
+
+
 
 	</body>
 </html>
