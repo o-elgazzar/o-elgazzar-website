@@ -1099,9 +1099,9 @@ input, select, textarea {
 		line-height: calc(2.75rem - 2px);
 	}
 
-/* BG */
+/* background */
 
-	#bg {
+	#background {
 		-moz-transform: scale(1.0);
 		-webkit-transform: scale(1.0);
 		-ms-transform: scale(1.0);
@@ -1115,7 +1115,7 @@ input, select, textarea {
 		z-index: 1;
 	}
 
-		#bg:before, #bg:after {
+		#background:before, #background:after {
 			content: '';
 			display: block;
 			position: absolute;
@@ -1125,7 +1125,7 @@ input, select, textarea {
 			height: 100%;
 		}
 
-		#bg:before {
+		#background:before {
 			-moz-transition: background-color 2.5s ease-in-out;
 			-webkit-transition: background-color 2.5s ease-in-out;
 			-ms-transition: background-color 2.5s ease-in-out;
@@ -1144,7 +1144,7 @@ input, select, textarea {
 			z-index: 2;
 		}
 
-		#bg:after {
+		#background:after {
 			-moz-transform: scale(1.125);
 			-webkit-transform: scale(1.125);
 			-ms-transform: scale(1.125);
@@ -1153,14 +1153,14 @@ input, select, textarea {
 			-webkit-transition: -webkit-transform 0.325s ease-in-out, -webkit-filter 0.325s ease-in-out;
 			-ms-transition: -ms-transform 0.325s ease-in-out, -ms-filter 0.325s ease-in-out;
 			transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out;
-			background-image: url("../../images/bg.jpg");
+			background-image: url("../../images/background.jpg");
 			background-position: center;
 			background-size: cover;
 			background-repeat: no-repeat;
 			z-index: 1;
 		}
 
-		body.is-article-visible #bg:after {
+		body.is-article-visible #background:after {
 			-moz-transform: scale(1.0825);
 			-webkit-transform: scale(1.0825);
 			-ms-transform: scale(1.0825);
@@ -1171,7 +1171,7 @@ input, select, textarea {
 			filter: blur(0.2rem);
 		}
 
-		body.is-preload #bg:before {
+		body.is-preload #background:before {
 			background-color: #000000;
 		}
 
@@ -1654,3 +1654,46 @@ input, select, textarea {
 		body.is-preload #footer {
 			opacity: 0;
 		}
+
+	.skills-container {
+			font-family: Arial, sans-serif;
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+	}
+		  
+	.skills-grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 20px;
+	}
+		  
+	.skill-section {
+			border-radius: 10px;
+			padding: 20px;
+	}
+ 
+	.checkmark {
+		display: inline-block;
+		width: 20px;
+		height: 20px; 
+		margin-right: 10px;
+		background-image: url("../../images/checkmark.png");
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		vertical-align: middle;
+	}
+		  
+	.skill-level {
+			font-size: 0.8em;
+			color: #fff7f7;
+			display: block;
+			margin-left: 5px;
+	}
+		  
+	@media (max-width: 600px) {
+			.skills-grid {
+			  grid-template-columns: 1fr;
+		}
+	}
