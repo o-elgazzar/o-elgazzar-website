@@ -164,37 +164,14 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
-			<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+			
 			<script type="text/javascript">
     		(function() {
         		emailjs.init("bc_LPvYU3dZ4uWlsr");
     		})();
 			</script>
 
-<script type="text/javascript">
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault(); 
 
-        
-        var name = document.getElementById('name').value;
-        var email = document.getElementById('email').value;
-        var message = document.getElementById('message').value;
-
-        
-        emailjs.send("service_c15rsil", "template_abbwq86", {
-            name: name,
-            email: email,
-            message: message
-        })
-        .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
-            alert("Your message has been sent successfully!");
-        }, function(error) {
-            console.log('FAILED...', error);
-            alert("Failed to send your message. Please try again later.");
-        });
-    });
-</script>
 
 
 
